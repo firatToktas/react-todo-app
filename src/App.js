@@ -5,13 +5,15 @@ import HeaderApp from "./todo/header";
 import "./style.css";
 
 function App() {
-  const [todos, setTodos]=useState([]);
-  const [user, setUser]=useState(false);
+  const [todos, setTodos] = useState([]);
+  const [user, setUser] = useState(false);
+  const [language, setLanguage] = useState('tr');
+  const [theme, setTheme] = useState('light');
   return (
     <>
       <HeaderApp user={user} setUser={setUser}/>
-      <Add todos={todos} setTodos={setTodos}/>
-      <TodosList todos={todos}/>
+      <Add setTodos={setTodos} user={user}/>
+      <TodosList todos={todos} setTodos={setTodos} user={user}/>
     </>
   );
 }
