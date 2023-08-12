@@ -1,10 +1,17 @@
-export default function Item({todo, setTodos, user}){
+export default function Item({todo, setTodos, user, setModal}){
+    
     const editTodo = () =>{
-        //elemenı editle
+        setModal({
+            name:"edit",
+            data: todo
+        })
     }
+
     const deleteTodo = () =>{
         setTodos(todos => todos.filter(t => t.id !== todo.id))
+        
     }
+    
     return(
         <>
             <li>
