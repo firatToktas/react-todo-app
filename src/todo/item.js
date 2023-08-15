@@ -1,4 +1,8 @@
+import { useDispatch } from "react-redux"
+import { addTodo } from "../stores/todo";
+
 export default function Item({todo, setTodos, user, setModal}){
+    const dispatch = useDispatch();
     
     const editTodo = () =>{
         setModal({
@@ -6,10 +10,9 @@ export default function Item({todo, setTodos, user, setModal}){
             data: todo
         })
     }
-
+    
     const deleteTodo = () =>{
-        setTodos(todos => todos.filter(t => t.id !== todo.id))
-        
+        dispatch(deleteTodo(todo.id))
     }
     
     return(

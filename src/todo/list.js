@@ -1,5 +1,7 @@
 import TodoItem from "./item"
-export default function List({todos, setTodos, user, setModal}){
+import { UseSelector, useSelector } from "react-redux/es/hooks/useSelector"
+export default function List({setTodos, user, setModal}){
+    const {todos} = useSelector(state => state.todo)
     return(
         <>
             <ul>

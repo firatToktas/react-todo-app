@@ -4,6 +4,7 @@ import TodosList from "./todo/list";
 import HeaderApp from "./todo/header";
 import Modal from "./todo/modal";
 import "./style.css";
+import {addTodo} from "./stores/todo"
 
 function App() {
   const [todos, setTodos] = useState([]);
@@ -11,13 +12,13 @@ function App() {
   const [language, setLanguage] = useState('tr');
   const [theme, setTheme] = useState('light');
   const [modal, setModal]= useState(false);
-  
+
   const close = () => setModal(false);
   return (
     <>  
       {modal && <Modal close={close} name={modal.name} data={modal.data}/>}
       <HeaderApp user={user} setUser={setUser}/>
-      <Add setTodos={setTodos} user={user}/>
+      <Add  user={user}/>
       <TodosList todos={todos} setTodos={setTodos} user={user} setModal={setModal}/>
     </>
   );
