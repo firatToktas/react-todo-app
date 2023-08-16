@@ -1,5 +1,5 @@
 import { useDispatch } from "react-redux"
-import { addTodo } from "../stores/todo";
+import {deleteTodo} from "../stores/todo";
 
 export default function Item({todo, setTodos, user, setModal}){
     const dispatch = useDispatch();
@@ -11,7 +11,7 @@ export default function Item({todo, setTodos, user, setModal}){
         })
     }
     
-    const deleteTodo = () =>{
+    const deleteTodos = () =>{
         dispatch(deleteTodo(todo.id))
     }
     
@@ -24,7 +24,7 @@ export default function Item({todo, setTodos, user, setModal}){
                 {todo.user === user.id && (
                     <>
                         <button className="editBtn" onClick={editTodo}>Editle</button>
-                        <button onClick={deleteTodo}>Sil</button>
+                        <button onClick={deleteTodos}>Sil</button>
                     </>
                 )
                 

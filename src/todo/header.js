@@ -1,10 +1,18 @@
-export default function Anannnnn({user, setUser}){
+import { useSelector } from "react-redux";
+import { useDispatch } from "react-redux"
+import {login, logout} from "../stores/auth";
+
+export default function HeaderApp(){
+
+    const {user} = useSelector(state => state.auth);
+    const dispatch = useDispatch();
+    
     const loginHandle = (userData) =>{
-        setUser(userData)  
+        dispatch(login(userData))
         console.log(user);
     }
     const logoutHandle = ()=>{
-        setUser(false);
+        dispatch(logout())
         console.log(user);
     }
     return(

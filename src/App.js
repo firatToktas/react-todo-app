@@ -5,10 +5,11 @@ import HeaderApp from "./todo/header";
 import Modal from "./todo/modal";
 import "./style.css";
 import {addTodo} from "./stores/todo"
+import { useSelector } from "react-redux";
 
 function App() {
+  const {user} = useSelector(state=> state.auth)
   const [todos, setTodos] = useState([]);
-  const [user, setUser] = useState(false);
   const [language, setLanguage] = useState('tr');
   const [theme, setTheme] = useState('light');
   const [modal, setModal]= useState(false);
@@ -17,7 +18,7 @@ function App() {
   return (
     <>  
       {modal && <Modal close={close} name={modal.name} data={modal.data}/>}
-      <HeaderApp user={user} setUser={setUser}/>
+      <HeaderApp/>
       <Add  user={user}/>
       <TodosList todos={todos} setTodos={setTodos} user={user} setModal={setModal}/>
     </>

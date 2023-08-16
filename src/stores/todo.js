@@ -9,10 +9,13 @@ const todos = createSlice({
     initialState, 
     reducers: {
         addTodo: (state, action) => {
-            state.todos.unshift(action.payload); // Immer kullanarak güncelleme yapılıyor
+            state.todos = [
+                action.payload,
+                ...state.todos
+            ]
         },
         deleteTodo: (state, action) => {
-            state.todos = state.todos.filter(t => t.id !== action.payload)
+            state.todos = state.todos.filter(todo => todo.id !== action.payload);
         }
     }
 })
